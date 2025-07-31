@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFE - 联系我们</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 网站头部区域-->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">CAFE</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="menu.html">菜单</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="contact.html" class="active">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 联系我们页面主要内容 -->
+    <main class="contact-page">
+        <div class="container">
+            <h1>找到我们</h1>
+            <p class="contact-intro">期待在 CAFE 与您相遇。无论是来一杯咖啡，还是只是想找个地方放松，我们都欢迎您。</p>
+
+            <!-- Flexbox 应用 #8: 创建信息和地图的左右分栏布局 -->
+            <div class="contact-content-wrapper">
+                
+                <!-- 左侧联系信息 -->
+                <div class="contact-details">
+                    <h2>店铺信息</h2>
+                    <div class="info-item">
+                        <h3>地址</h3>
+                        <p>中国，北京市，朝阳区，咖啡大道 123 号</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>电话</h3>
+                        <p><a href="tel:+861012345678">+86 10-1234-5678</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>电子邮箱</h3>
+                        <p><a href="mailto:hello@cafe.com">hello@cafe.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>营业时间</h3>
+                        <p>周一至周五: 8:00 AM - 10:00 PM</p>
+                        <p>周六至周日: 9:00 AM - 11:00 PM</p>
+                    </div>
+                </div>
+
+                <!-- 右侧地图 -->
+                <div class="map-container">
+                    <!-- 这是一个嵌入式地图的示例，你可以替换成你们店的真实地址 -->
+                    <iframe 
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=116.45,39.90,116.47,39.92&layer=mapnik" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 网站底部区域-->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 CAFE 咖啡店. 版权所有.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

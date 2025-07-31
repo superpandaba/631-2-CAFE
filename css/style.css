@@ -1,0 +1,394 @@
+/* === 全局样式和变量 === */
+
+/* 
+   使用 :root 来定义全局CSS变量。
+*/
+:root {
+    --primary-color: #6a4f4b; /* 主色调：温暖的咖啡色 */
+    --secondary-color: #f4f1ea; /* 次要色：柔和的米白色，用于背景 */
+    --accent-color: #a5a58d; /* 点缀色：灰绿色 */
+    --text-color: #333; /* 文本颜色 */
+    --light-text-color: #fff; /* 浅色文本颜色，用于深色背景 */
+}
+
+/* 基础重置和盒模型设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 使用 border-box 模型，方便计算宽高 */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto; /* 让内容区域在页面中水平居中 */
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+
+/* === 头部和导航栏 (Header & Navigation) === */
+
+.main-header {
+    background: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky; /* 让导航栏在滚动时能吸顶，提升用户体验 */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-header .container {
+    /*  Flexbox 应用 #1: 这是第一个使用Flexbox的地方 */
+    display: flex; /* 开启Flexbox布局 */
+    justify-content: space-between; /* 两端对齐：让子元素（logo和nav）一个在左，一个在右 */
+    align-items: center; /* 垂直居中：让子元素在垂直方向上对齐 */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--light-text-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none; /* 去掉列表默认的小圆点 */
+    /* Flexbox 应用 #2: 导航项本身也用Flexbox来排列 */
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease; /* 添加一个平滑的过渡效果 */
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+
+/* === 主页英雄区域 (Hero Section) === */
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg') no-repeat center center/cover;
+    /* (图片路径已更新为本地) */
+    color: var(--light-text-color);
+    height: 60vh; /* 占据视口高度的60% */
+    text-align: center;
+
+    /* Flexbox 应用 #3: 使用Flexbox实现完美的垂直和水平居中 */
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--light-text-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+}
+
+
+/* === 特色产品区域 (Featured Products) === */
+
+.featured-products {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.products-container {
+    /* Flexbox 应用 #4: 核心布局！用Flexbox创建卡片式布局 */
+    display: flex;
+    justify-content: space-around; /* 子元素之间平均分配空间 */
+    flex-wrap: wrap; /* 如果屏幕太窄，允许子元素换行 */
+    gap: 20px; /* 子元素之间的间距 */
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    width: 30%; /* 理想状态下每个占30%宽度 */
+    min-width: 280px; /* 保证在小屏幕上不会被压得太窄 */
+    text-align: left;
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* 保证图片不变形地填满容器 */
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.product-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+
+/* === 页脚 (Footer) === */
+
+.main-footer {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+/* === 菜单页 (Menu Page) === */
+
+.menu-page {
+    padding: 4rem 0;
+}
+
+.menu-page h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+}
+
+.menu-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.menu-category {
+    margin-bottom: 3rem;
+}
+
+.menu-category h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.menu-item {
+    /* Flexbox 应用 #5: 菜单项也用Flexbox来布局 */
+    display: flex;
+    justify-content: space-between; /* 名称和价格两端对齐 */
+    align-items: flex-start; /* 顶部对齐 */
+    padding: 1rem 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item-info h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.2rem;
+}
+
+.menu-item-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.menu-item-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    white-space: nowrap; /* 防止价格换行 */
+    margin-left: 1rem;
+}
+
+/* === 关于我们页面 (About Page) === */
+
+.about-page {
+    padding: 4rem 0;
+}
+
+.about-page h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.story-content {
+    /* Flexbox 应用 #6: 创建图文左右布局 */
+    display: flex;
+    gap: 2rem; /* 图片和文字之间的间距 */
+    align-items: center; /* 垂直居中 */
+    margin-bottom: 4rem;
+}
+
+.story-image {
+    flex: 1; /* 占据可用空间的1份 */
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.story-text {
+    flex: 2; /* 占据可用空间的2份，比图片宽 */
+}
+
+.story-text h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.story-text p {
+    margin-bottom: 1rem;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.image-gallery {
+    /* Flexbox 应用 #7: 创建响应式照片墙 */
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* 允许换行 */
+    justify-content: center; /* 居中显示 */
+}
+
+.image-gallery img {
+    width: calc(33.333% - 1rem); /* 计算每张图的宽度，减去gap */
+    min-width: 300px; /* 最小宽度 */
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* 添加一个鼠标悬浮放大效果 */
+}
+
+/* === 联系我们页面 (Contact Page) === */
+
+.contact-page {
+    padding: 4rem 0;
+}
+
+.contact-page h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+}
+
+.contact-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-content-wrapper {
+    /* Flexbox 应用 #8: 创建信息和地图的左右分栏布局 */
+    display: flex;
+    gap: 2rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.contact-details {
+    flex-basis: 50%; /* 占据50%的基准宽度 */
+}
+
+.contact-details h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.info-item p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+.map-container {
+    flex-basis: 50%; /* 占据50%的基准宽度 */
+    min-height: 400px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+} 
